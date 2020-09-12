@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<style>
+    svg {
+        font: 11px sans-serif;
+    }
+    .axis {
+        shape-rendering: crispEdges;
+    }
+    .axis .domain {
+        fill: none;
+        stroke: #666;
+        stroke-width: 1px;
+    }
+    .axis line {
+        stroke: #000;
+    }
+    rect.{{ sender1 }} {
+        fill: #EEAACC;
+    }
+    rect.{{ sender2 }} {
+        fill: #3388EE;
+    }
+    .handle {
+        stroke: #000;
+        fill: #ccc;
+    }
+    .control_dial {
+        display: inline-block;
+    }
+</style>
+
+<head>
+    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+    <script>
+        function plot_pyramid(raw_data, temp_label, feat_label, user1_label, user2_label) {
+
+            // ---------------   AUXILIARY FUNCTIONS   ----------------
+            function uptext ( root, lines ) {
+                  var lines = this.selectAll( 'tspan' ).data( this.datum() );
+                  lines.text( d => d );
+                  lines.exit().remove();
+                  lines.enter().append( 'tspan' )
+                    .attr( 'x', 0 )
+                    .attr( 'dy', (d,i) => ( i * 1.2 ) + 'em' )
+                    .text( d => d );
+                  return this;
+                }
+
+            function update ( current_year, animate ) {
+                // this functions performs the data animation when changing years using the slider
+
+                // get data for the current year and discard the rest
+                let _data = data.filter( d => d.year === current_year )
+                    // function to flag data points where the sender is the user1
+                    , is_user1 = d => d.sender === user1_label.toLowerCase()
+                    // function that returns the x position of the bar based on the user inside the datapoint
+                    , x_pos = d => {
+                        return is_user1( d )
+                          ? cx - gutter - s_value( d.value )
+                          : cx + gutter;
+                      }
+                    // total value after summing up all datapoints for that year AND both users
+                    , total = d3.sum( _data, d => d.value  )
+                    // total values after summin up all datapoints for that year for user1
+                    , m_total = d3.sum( _data, d => is_user1( d ) ? d.value : 0 )
+                    ;
+                // update user 1 message count label
+                svg_text_m.datum([ user1_label, formatter( m_total ) ])
+                          .call( uptext );
+                // update user 2 message count label
+                svg_text_f.datum([ user2_label, formatter( total - m_total ) ])
+                          .call( uptext );
+                // update global message count label
+                svg_text_t.datum([ `Total number of messages in ${current_year} was ${formatter(total)}` ])
+                          .call( uptext );
+
+                // set data for bars
+                let bar = bars.selectAll( '.bar' ).data( _data );
+
+                // animation that sets the new column values
+                bar.transition().duration( animate ? 450 : 0 )
+                   .attr( 'width', d => s_value( d.value ) )
+                   .attr( 'x', x_pos );
+
+                // add new bars (https://www.d3indepth.com/enterexit/)
+                bar.exit().remove();
+
+                bar.enter().append( 'rect' )
+                    // class indicates that this is a bar and the sender too
+                   .attr( 'class', d => 'bar ' + d.sender )
+                    // the height (the bar is horizontal) is always fixed
+                   .attr( 'height', barheight )
+                    // the width changes according to the value
+                   .attr( 'width', d => s_value( d.value ) )
+                    // the horizontal position is fixed for each user. x_pos returns the position for each user
+                   .attr( 'x', x_pos )
+                    // compute the vertical position of the bar on the vertical time scale (unit delta)
+                   .attr( 'y', d => s_delta( d[temp_label] ) - barheight/2 )
+                    // tooltip callback
+                   .on('mouseover', tip.show)
+                   .on('mouseout', tip.hide);
+            }
+
+            function onbrush () {
+                // callback every time a redrawing is triggered
+                    // this is the year (????)
+                let value = brush.extent()[ 0 ]
+                    // whether if to animate data changes or do them instantly
+                  , animate = true;
+                if ( d3.event && d3.event.sourceEvent ) {
+                    if ( d3.event.sourceEvent.type === 'mousemove' ) {
+                        animate = false;
+                    }
+                    value = d3.round( s_year.invert( d3.mouse( this )[ 0 ] ) );
+                    brush.extent([ value, value ]);
+                }
+                // move slider to its new position after a change
+                handle.attr( 'transform', `translate(${s_year(value)}, -10)` );
+                update( value, animate );
+            }
+
+            // ---------------   DATA PARSING   ----------------
+            // parse json data string into a JS array
+            let global_data = JSON.parse(raw_data);
+            // choose the temporal and feature aggregation levels
+            let data = global_data[temp_label][feat_label];
+
+            // ---------------   VARIABLE DECLARATION   ----------------
+                // margins of the plots
+            let margin = { top: 10, right: 10, bottom: 10, left: 10 }
+                // widhth of the plot
+              , width = 960 - margin.left - margin.right
+                // height of the plot
+              , height = 500 - margin.top - margin.bottom
+                // width of the gutter between both pyramids, that will hold the temporal axis ticks
+              , gutter = 30
+                // height of the pyramids
+              , pyramid_h = height - 105
+                // get interval [min, max] of our variables
+              , dom_delta = d3.extent( data, d => d[temp_label] )
+              , dom_year = d3.extent( data, d => d.year )
+              , dom_value = d3.extent( data, d => d.value )
+                // set visual format
+              , formatter = d3.format( ',d' )
+                // set width the pyramids' bars based on the dom interval we got before and the height of the pyramids we defined
+              , barheight = ( pyramid_h / ( dom_delta[1] - dom_delta[0] ) ) + 0.2
+                // utility declaration of half of the width
+              , cx = width / 2;
+
+            // crate a SVG container inside the body
+            // and set its dimensions (with margins) from the prev variables
+            // add a G container inside the SVG container nad move it to the start
+            // of the NON margin area
+            let svg = d3.select( '.plot_container' ).append( 'svg' )
+                                         .attr( 'width', width + margin.left + margin.right )
+                                         .attr( 'height', height + margin.top + margin.bottom )
+                                         .append( 'g' )
+                                         .attr( 'transform', `translate(${margin.left},${margin.top})` );
+
+            // text label for male
+            let svg_text_m = svg.append( 'text' )
+                                .attr( 'transform', `translate(${cx-350},10)` )
+                                .style( 'font', '15px sans-serif' )
+                                .attr( 'text-anchor', 'start' );
+
+            // text label for female
+            let svg_text_f = svg.append( 'text' )
+                                .attr( 'transform', `translate(${cx+350},10)` )
+                                .style( 'font', '15px sans-serif' )
+                                .attr( 'text-anchor', 'end' );
+
+            // text label for total items in that year
+            let svg_text_t = svg.append( 'text' )
+                                .attr( 'transform', `translate(${cx},${pyramid_h+65})` )
+                                .style( 'font', '15px sans-serif' )
+                                .attr( 'text-anchor', 'middle' );
+
+            // function that scales the year
+            let s_year = d3.scale.linear()
+                                 .domain( dom_year )
+                                 // scale input to this new range
+                                 .range([ 0, 400 ])
+                                 // dont allow scaling outside the domain
+                                 .clamp( true );
+
+            // year axis
+            let ax_year = d3.svg.axis()
+                                // define scale
+                                .scale( s_year )
+                                .orient( 'bottom' )
+                                // define number of ticks
+                                .ticks( 4 )
+                                .tickFormat( String );
+
+            // add G container for year axis and set it in the middle (cx) - XXX
+            // and after the pyramid + XXX
+            let svg_axis_year = svg.append( 'g' )
+                                   // define class for HTML
+                                   .attr( 'class', 'axis year' )
+                                   // locate container under main graph and centered
+                                   .attr( 'transform', `translate(${cx-200},${pyramid_h+85})` )
+                                   // put axis inside container
+                                   .call( ax_year );
+
+            // function that scales the delta
+            let s_delta = d3.scale.linear()
+                                  // define domain reversed, so that time scale goes up in the graph
+                                  .domain( dom_delta.concat().reverse() )
+                                  // scale deltas to fill range of pyramid height
+                                  .range([ 0, pyramid_h ]);
+
+
+            // ------------------ DELTA AXIS ---------------------
+            // LEFT graphical axis with ticks for delta
+            let ax_delta_l = d3.svg.axis()
+                                   .scale( s_delta )
+                                   .orient( 'left' );
+                                   // dont write down the last delta by checking if its 0 (evaluates to False)
+                                   {#.tickFormat( d => s_delta( d ) ? '' + d : '' );#}
+
+            // RIGHT graphical axis with ticks for delta
+            let ax_delta_r = d3.svg.axis()
+                                   .scale( s_delta )
+                                   .orient( 'right' )
+                                   // dont write the tick labels since we can use the left one for both
+                                   .tickFormat( d => '' );
+
+            // add G container for RIGHT delta axis and set its position
+            svg.append( 'g' )
+               .attr( 'class', 'axis delta' )
+               .attr( 'transform', `translate(${cx-gutter/2-10},0)` )
+               .call( ax_delta_r );
+
+            // add G container for LEFT delta axis and set its position
+            // save it to a variable to append the extra unit label to it
+            let ax_delta_svg = svg.append( 'g' )
+                                  .attr( 'class', 'axis delta' )
+                                  .attr( 'transform', `translate(${cx+gutter/2+10}, 0)` )
+                                  .call( ax_delta_l );
+
+            // add extra legend label to indicate the unit of the delta axis
+            ax_delta_svg.append( 'text' )
+                        .attr( 'dy', '35.5em' )
+                        .text(temp_label);
+
+            // center all delta text labels
+            ax_delta_svg.selectAll( 'text' )
+                        .attr( 'x', -gutter/2-10 )
+                        .style( 'text-anchor', 'middle' );
+
+            // ----------------- Population AXES  -----------------------------------
+            // function that scales population to a new range
+            let s_value = d3.scale.linear()
+                                  .domain( dom_value )
+                                  .range([ 0, 250 ]);
+
+            // user 1 scale
+            let s_user1 = d3.scale.linear()
+                                  .domain( dom_value.reverse() )
+                                  .range([ 0, 250 ]);
+
+            // user 1 axis
+            let ax_user1 = d3.svg.axis()
+                                 .scale( s_user1 )
+                                 .orient( 'bottom' )
+                                 .ticks( 5 )
+                                 .tickFormat( formatter );
+
+            // add user 1 axis to SVG and put it inside a G container
+            svg.append( 'g' )
+               .attr( 'class', 'axis user 1' )
+               .attr( 'transform', `translate(${cx-250-gutter},${pyramid_h+20})` )
+               .call( ax_user1 );
+
+            // user 2 axis
+            let ax_user2 = d3.svg.axis()
+                                 .scale( s_value )
+                                 .orient( 'bottom' )
+                                 .ticks( 5 )
+                                 .tickFormat( formatter );
+
+            // add user 2 axis to SVG and put it inside a G container
+            svg.append( 'g' )
+               .attr( 'class', 'axis user 2' )
+               .attr( 'transform', `translate(${cx+gutter},${pyramid_h+20})` )
+               .call( ax_user2 );
+
+            // ------------------  BARS  -------------------------
+
+            // add G object to SVG that will holds the graph bars (to be filled inside function update)
+            let bars = svg.append( 'g' )
+                .attr( 'class', 'pyramid population' );
+
+            // ------------------  YEAR SLIDER GROOVE  -------------------
+            // current year
+            let curr_point = d3.svg.symbol()
+                .type( 'triangle-down' )
+                .size( 100 );
+
+            let brush = d3.svg.brush()
+                .x( s_year )
+                // register groove initial year
+                .extent([dom_year[0]])
+                // register callback function on brush event
+                .on( 'brush', onbrush );
+
+            // declare slider object
+            let slider = svg_axis_year.append( 'g' )
+                                      .attr( 'class', 'slider' )
+                                      // this is equivalent to brush(slider)
+                                      .call( brush );
+
+            // ??? works without this
+            slider.selectAll( '.extent,.resize' )
+                  .remove();
+
+            // set slider background to have a non 0 height so that the mouse can interact with it
+            slider.select( '.background' )
+                  .attr( 'y', -20 )
+                  .attr( 'height', 40 );
+
+            // add handle to slider and keep it in a variable to translate it
+            let handle = slider.append( 'path' )
+                               .attr( 'class', 'handle' )
+                               .attr( 'd', curr_point );
+
+            // -------------   TOOLTIP   ----------------
+            // on hover, display this info
+            let tip = d3.tip()
+              .attr('class', 'd3-tip')
+              .offset([0, 0])
+              .html(function(d) {
+                return `<span>${d.value}</span>`;
+              });
+            svg.call(tip);  
+
+
+            // -------------  INITIALIZATION BRUSHING   ------------------
+            // manually trigger on brush a first time to fill the graph with startup year data
+            onbrush();
+        }
+    </script>
+</head>
+
+<body>
+<div class="control_panel">
+    <div class="control_dial">
+        <select id="temp_agg_form">
+            <option name="temp_agg" value="month" checked="checked">Month<br>
+            <option name="temp_agg" value="week" >Week<br>
+            <option name="temp_agg" value="day">Day<br>
+        </select>
+    </div>
+    <div class="control_dial">
+        <select id="feat_agg_form">
+            {% for feat_id in feat_ids %}
+                <option name="feat_agg" value={{ feat_id }}>{{ feat_id|id_to_title}}<br>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="plot_container">
+    <script>
+    plot_pyramid({{ raw_data|tojson|safe }}, "{{ starting_temp }}", "{{ starting_feat }}", "{{ sender1 }}", "{{ sender2 }}")
+</script>
+</div>
+
+
+
+
+<script>
+    // -------------  REGISTER LISTENER FOR TEMP AGG SELECTION MENU  ---------------------
+    d3.selectAll("select[id='temp_agg_form']").on("change", function(){
+        d3.select("svg").remove();
+        let feat_form = document.getElementById("feat_agg_form");
+        document.getElementsByClassName("plot_container").innerHTML =
+                            plot_pyramid({{ raw_data|tojson|safe }},
+                                         this.value,
+                                         feat_form.options[feat_form.selectedIndex].value,
+                                         {#document.querySelector('input[name="feat_agg"]:checked').value,#}
+                                         "{{ sender1 }}",
+                                         "{{ sender2 }}");
+    });
+
+
+    // -------------  REGISTER LISTENER FOR FEAT AGG SELECTION MENU  ---------------------
+    d3.selectAll("select[id='feat_agg_form']").on("change", function(){
+            d3.select("svg").remove();
+            let temp_form = document.getElementById("temp_agg_form");
+
+            document.getElementsByClassName("plot_container").innerHTML =
+                                plot_pyramid({{ raw_data|tojson|safe }},
+                                             temp_form.options[temp_form.selectedIndex].value,
+                                             {#document.querySelector('input[name="temp_agg"]:checked').value,#}
+                                             this.value,
+                                             "{{ sender1 }}",
+                                             "{{ sender2 }}");
+        });
+</script>
+
+
+</body>

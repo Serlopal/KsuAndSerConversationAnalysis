@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1cff5bf2-1464-4ff2-a3a9-905a00c227c1" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ksu_convo_analysis$test.coverage" NAME="test Coverage Results" MODIFIED="1573598227338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="JupyterTrust" id="f1505150-b5d5-445f-b2eb-8b2263af25a5" />
+  <component name="ProjectId" id="1bEUlzSHUxvj4BNIze4Ei5fb4jQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oro_s\Documents\4-CODE\Python\NLP\ksu_convo_analysis\app\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flask server.Flask (dashboard.py)">
+    <configuration name="generate_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ksu_convo_analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/app/population_pyramid" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app/population_pyramid/generate_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ksu_convo_analysis" type="PythonConfigurationType" factoryName="Python">
+      <module name="ksu_convo_analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ksu_convo_analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/flask_dashboard" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/flask_dashboard/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ksu_convo_analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ksu_convo_analysis" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flask (dashboard.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <option name="flaskDebug" value="true" />
+      <module name="ksu_convo_analysis" />
+      <option name="target" value="$PROJECT_DIR$/dashboard.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flask server.Flask (dashboard.py)" />
+      <item itemvalue="Python.ksu_convo_analysis" />
+      <item itemvalue="Python.generate_data" />
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.main (1)" />
+      <item itemvalue="Python.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (dashboard.py)" />
+        <item itemvalue="Python.generate_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cff5bf2-1464-4ff2-a3a9-905a00c227c1" name="Default Changelist" comment="" />
+      <created>1569614673693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569614673693</updated>
+      <workItem from="1569614675181" duration="598000" />
+      <workItem from="1571944976971" duration="5064000" />
+      <workItem from="1573596935732" duration="1133000" />
+      <workItem from="1574600318627" duration="172000" />
+      <workItem from="1588196903351" duration="7295000" />
+      <workItem from="1588329467661" duration="1156000" />
+      <workItem from="1588411586543" duration="75000" />
+      <workItem from="1588413418452" duration="198000" />
+      <workItem from="1595195413492" duration="247000" />
+      <workItem from="1595278376228" duration="13000" />
+      <workItem from="1597352484175" duration="3724000" />
+      <workItem from="1597588380579" duration="2034000" />
+      <workItem from="1597591165917" duration="4556000" />
+      <workItem from="1597618371133" duration="4767000" />
+      <workItem from="1597677770890" duration="2094000" />
+      <workItem from="1597740768976" duration="6707000" />
+      <workItem from="1597838746330" duration="9408000" />
+      <workItem from="1597910519292" duration="1926000" />
+      <workItem from="1597913119368" duration="502000" />
+      <workItem from="1597913689405" duration="206000" />
+      <workItem from="1598093850953" duration="12558000" />
+      <workItem from="1598190063225" duration="11516000" />
+      <workItem from="1598351097267" duration="36000" />
+      <workItem from="1599863348875" duration="394000" />
+      <workItem from="1599895311725" duration="22063000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2014" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598011940899">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state x="2014" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1598011940899" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597911897045">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1597911897045" />
+    <state x="289" y="131" width="618" height="564" key="#xdebugger.evaluate" timestamp="1599924033145">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="289" y="131" width="1085" height="595" key="#xdebugger.evaluate/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599924033145" />
+    <state x="524" y="121" width="755" height="581" key="#xdebugger.evaluate/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597354168877" />
+    <state x="419" y="81" width="618" height="564" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1598218689055" />
+    <state x="548" y="158" key="FileChooserDialogImpl" timestamp="1598351131579">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="2834" y="200" key="FileChooserDialogImpl/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1597618347181" />
+    <state x="2377" y="241" key="FileChooserDialogImpl/0.0.1536.824/1920.52.1280.984@1920.52.1280.984" timestamp="1595278386988" />
+    <state x="548" y="158" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1598351131579" />
+    <state width="2517" height="223" key="GridCell.Tab.0.bottom" timestamp="1599945579164">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1493" height="136" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1599863730259" />
+    <state width="2517" height="223" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599945579164" />
+    <state width="1493" height="136" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1598127665913" />
+    <state width="1493" height="136" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598222078997" />
+    <state width="2517" height="223" key="GridCell.Tab.0.center" timestamp="1599945579164">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1493" height="136" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1599863730259" />
+    <state width="2517" height="223" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599945579164" />
+    <state width="1493" height="136" key="GridCell.Tab.0.center/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1598127665913" />
+    <state width="1493" height="136" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1598222078997" />
+    <state width="2517" height="223" key="GridCell.Tab.0.left" timestamp="1599945579164">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1493" height="136" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1599863730259" />
+    <state width="2517" height="223" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599945579164" />
+    <state width="1493" height="136" key="GridCell.Tab.0.left/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1598127665913" />
+    <state width="1493" height="136" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1598222078997" />
+    <state width="2517" height="223" key="GridCell.Tab.0.right" timestamp="1599945579164">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1493" height="136" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2560.1040@0.0.1536.824" timestamp="1599863730259" />
+    <state width="2517" height="223" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599945579164" />
+    <state width="1493" height="136" key="GridCell.Tab.0.right/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1598127665913" />
+    <state width="1493" height="136" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1598222078997" />
+    <state width="2517" height="312" key="GridCell.Tab.1.bottom" timestamp="1599930283682">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="312" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599930283682" />
+    <state width="1493" height="203" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597355608206" />
+    <state width="1493" height="234" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1598218704896" />
+    <state width="2517" height="312" key="GridCell.Tab.1.center" timestamp="1599930283682">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="312" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599930283682" />
+    <state width="1493" height="203" key="GridCell.Tab.1.center/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597355608206" />
+    <state width="1493" height="234" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1598218704896" />
+    <state width="2517" height="312" key="GridCell.Tab.1.left" timestamp="1599930283682">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="312" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599930283682" />
+    <state width="1493" height="203" key="GridCell.Tab.1.left/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597355608206" />
+    <state width="1493" height="234" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1598218704896" />
+    <state width="2517" height="312" key="GridCell.Tab.1.right" timestamp="1599930283682">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="2517" height="312" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1599930283682" />
+    <state width="1493" height="203" key="GridCell.Tab.1.right/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597355608206" />
+    <state width="1493" height="234" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1598218704896" />
+    <state x="2701" y="163" key="SettingsEditor" timestamp="1598006399257">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state x="2701" y="163" key="SettingsEditor/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1598006399257" />
+    <state width="1294" height="531" key="XDebugger.FullValuePopup" timestamp="1597966553705">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state width="1294" height="531" key="XDebugger.FullValuePopup/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1597966553705" />
+    <state width="776" height="420" key="XDebugger.FullValuePopup/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597352810203" />
+    <state x="2761" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597962453050">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state x="2761" y="257" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1597962453050" />
+    <state x="2638" y="183" width="1120" height="856" key="search.everywhere.popup" timestamp="1597999898495">
+      <screen x="1920" y="0" width="2560" height="1040" />
+    </state>
+    <state x="2638" y="183" width="1120" height="856" key="search.everywhere.popup/0.0.1536.824/1920.0.2560.1040@1920.0.2560.1040" timestamp="1597999898495" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.52.1280.984@0.0.1536.824" timestamp="1597355479258" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ksu_convo_analysis$Flask__dashboard_py_.coverage" NAME="Flask (dashboard.py) Coverage Results" MODIFIED="1599945579157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ksu_convo_analysis$generate_data.coverage" NAME="generate_data Coverage Results" MODIFIED="1597917849617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app/population_pyramid" />
+  </component>
+</project>
