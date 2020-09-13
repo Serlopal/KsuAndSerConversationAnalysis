@@ -107,10 +107,10 @@ def get_dashboard():
                       "median_reply_delay": get_median_reply_delay_feature,
                       "avg_reply_delay": get_avg_reply_delay_feature,
                       "max_reply_delay": get_max_reply_delay_feature,
-                      "avg_message_length": get_avg_reply_delay_feature,
-                      "median_message_length": get_median_reply_delay_feature,
-                      "max_message_length": get_max_reply_delay_feature,
-                      "min_message_length": get_min_reply_delay_feature,
+                      "avg_message_length": get_avg_message_length_feature,
+                      "median_message_length": get_median_message_length_feature,
+                      "max_message_length": get_max_message_length_feature,
+                      "min_message_length": get_min_message_length_feature,
                       }
 
     for temp_col in ["month", "week", "day"]:
